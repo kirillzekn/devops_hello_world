@@ -15,13 +15,24 @@ stages:
     - bash: echo stepA
 
 - stage: stageB
+  dependsOn: stageA
   jobs:
   - job: jobB
     steps:
     - bash: echo stepB
 
 - stage: stageC
+  dependsOn: stageA
   jobs:
   - job: jobC
     steps:
     - bash: echo stepC
+
+- stage: stageD
+  dependsOn:
+  - stageB
+  - stageC
+  jobs:
+  - job: jobD
+    steps:
+    - bash: echo stepD
