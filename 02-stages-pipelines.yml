@@ -12,16 +12,16 @@ stages:
   jobs:
   - job: jobA
     steps:
-    - step: echo stepA
+    - bash: echo stepA
 
 - stage: stageB
   jobs:
   - job: jobB
     steps:
-    - step: echo stepB
+    - bash: echo stepB
 
 - stage: stageC
   jobs:
   - job: jobC
     steps:
-    - step: echo stepC
+    - bash: echo stepC
