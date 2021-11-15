@@ -7,7 +7,7 @@ trigger:
 - master
 
 jobs:
-- job: JOB A
+- job: JOB_A
   pool:
     vmImage: ubuntu-latest
 
@@ -20,7 +20,7 @@ jobs:
       echo See https://aka.ms/yaml
     displayName: 'Run a multi-line script'
 
-- job: JOB B
+- job: JOB_B
   pool:
     vmImage: ubuntu-latest
 
