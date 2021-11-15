@@ -6,9 +6,6 @@
 trigger:
 - master
 
-pool:
-  
-
 jobs:
 - job: JOB A
   pool:
