@@ -8,6 +8,7 @@ trigger:
 
 jobs:
 - job: JOB_A
+  dependsOn: JOB_B
   pool:
     vmImage: ubuntu-latest
 
@@ -21,6 +22,7 @@ jobs:
     displayName: 'Run a multi-line script'
 
 - job: JOB_B
+  
   pool:
     vmImage: ubuntu-latest
 
