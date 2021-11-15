@@ -25,5 +25,5 @@ jobs:
     vmImage: ubuntu-latest
 
   steps:
-  - script: script for JOB B
+  - script: echo script for JOB B
 
