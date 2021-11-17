@@ -22,7 +22,7 @@ stages:
     steps:
     - bash:  echo $(Build.BuildNumber)
     - bash:  echo $(Build.SourceBranchName)
-    - bash:  echo $(Build.ArtifactStaging)
+    - bash:  echo $(Build.ArtifactStagingDirectory)
 # - stage: stageB
 #   dependsOn: stageA
 #   jobs:
