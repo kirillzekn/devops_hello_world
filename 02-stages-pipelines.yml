@@ -6,27 +6,32 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-
+variables:
+  env1: prod
+  env2: stage
+  env3: qa
+  env4: dev
+  
 stages:
 - stage: stageA
   jobs:
   - job: jobA
     steps:
-    - bash: echo stepA
+    - bash: echo stepA $(env1)
 
 - stage: stageB
   dependsOn: stageA
   jobs:
   - job: jobB
     steps:
-    - bash: echo stepB
+    - bash: echo stepB $(env2)
 
 - stage: stageC
   dependsOn: stageA
   jobs:
   - job: jobC
     steps:
-    - bash: echo stepC
+    - bash: echo stepC $(env3)
 
 - stage: stageD
   dependsOn:
@@ -35,4 +40,4 @@ stages:
   jobs:
   - job: jobD
     steps:
-    - bash: echo stepD
+    - bash: echo stepD $(env4)
