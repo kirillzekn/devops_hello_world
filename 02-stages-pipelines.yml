@@ -17,7 +17,7 @@ stages:
   jobs:
   - job: jobA
     steps:
-    - bash: echo stepA $(env1)
+    - bash: echo $(env1)
 
 - stage: stageB
   dependsOn: stageA
