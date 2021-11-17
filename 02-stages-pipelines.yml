@@ -15,29 +15,33 @@ variables:
 stages:
 - stage: stageA
   jobs:
-  - job: jobA
+  # - job: jobA1
+  #   steps:
+  #   - bash: echo 'stepA $(env1)'
+  - job: jobA2
     steps:
-    - bash: echo 'stepA $(env1)'
+    - bash:  echo $(Build.BuildNumber)
+    - bash:  echo $(Build.SourceBranchName)
+    - bash:  echo $(Build.ArtifactStaging)
+# - stage: stageB
+#   dependsOn: stageA
+#   jobs:
+#   - job: jobB
+#     steps:
+#     - bash: echo 'stepB $(env2)'
 
-- stage: stageB
-  dependsOn: stageA
-  jobs:
-  - job: jobB
-    steps:
-    - bash: echo 'stepB $(env2)'
+# - stage: stageC
+#   dependsOn: stageA
+#   jobs:
+#   - job: jobC
+#     steps:
+#     - bash: echo 'stepC $(env3)'
 
-- stage: stageC
-  dependsOn: stageA
-  jobs:
-  - job: jobC
-    steps:
-    - bash: echo 'stepC $(env3)'
-
-- stage: stageD
-  dependsOn:
-  - stageB
-  - stageC
-  jobs:
-  - job: jobD
-    steps:
-    - bash: echo 'stepD $(env4)'
+# - stage: stageD
+#   dependsOn:
+#   - stageB
+#   - stageC
+#   jobs:
+#   - job: jobD
+#     steps:
+#     - bash: echo 'stepD $(env4)'
