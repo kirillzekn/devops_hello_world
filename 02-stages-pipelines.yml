@@ -17,21 +17,21 @@ stages:
   jobs:
   - job: jobA
     steps:
-    - bash: echo $(env1)
+    - bash: echo 'stepA $(env1)'
 
 - stage: stageB
   dependsOn: stageA
   jobs:
   - job: jobB
     steps:
-    - bash: echo stepB $(env2)
+    - bash: echo 'stepB $(env2)'
 
 - stage: stageC
   dependsOn: stageA
   jobs:
   - job: jobC
     steps:
-    - bash: echo stepC $(env3)
+    - bash: echo 'stepC $(env3)'
 
 - stage: stageD
   dependsOn:
@@ -40,4 +40,4 @@ stages:
   jobs:
   - job: jobD
     steps:
-    - bash: echo stepD $(env4)
+    - bash: echo 'stepD $(env4)'
