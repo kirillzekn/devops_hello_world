@@ -20,9 +20,12 @@ stages:
   #   - bash: echo 'stepA $(env1)'
   - job: jobA2
     steps:
+    - bash:  ls -R ($System.DefaultWorkingDirectory)
     - bash:  echo $(Build.BuildNumber)
     - bash:  echo $(Build.SourceBranchName)
     - bash:  echo $(Build.ArtifactStagingDirectory)
+    - bash:  java -version
+    - bash:  python --version
 # - stage: stageB
 #   dependsOn: stageA
 #   jobs:
