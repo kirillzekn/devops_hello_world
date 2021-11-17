@@ -21,11 +21,21 @@ stages:
   - job: jobA2
     steps:
     - bash:  ls -R $(System.DefaultWorkingDirectory)
-    - bash:  echo $(Build.BuildNumber)
-    - bash:  echo $(Build.SourceBranchName)
+    # - bash:  echo $(Build.BuildNumber)
+    # - bash:  echo $(Build.SourceBranchName)
     - bash:  echo $(Build.ArtifactStagingDirectory)
-    - bash:  java -version
-    - bash:  python --version
+    - bash:  ls -R $(Build.ArtifactStagingDirectory)
+    # - bash:  java -version
+    # - bash:  python --version
+    - task: CopyFiles@2
+      inputs:
+        SourceFolder: '$(System.DefaultWorkingDirectory)'
+        Contents: |
+          **/*.yaml
+          **/*.tf
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+    - bash:  ls -R $(Build.ArtifactStagingDirectory)
 # - stage: stageB
 #   dependsOn: stageA
 #   jobs:
